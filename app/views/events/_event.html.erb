@@ -1,0 +1,9 @@
+<br>
+<div class="js-more" data-id="<%= event.id %>">
+<h3 class="title"><%= event.name %></h3> 
+<% if !!admin %>
+    <button class="delete">Delete</button>
+<% end %>
+<h5><%= event.location %></h5>
+<h4 id="body-<%= event.id %>"><%= truncate event.description %></h4>
+</div>

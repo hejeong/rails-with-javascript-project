@@ -1,1 +1,8 @@
 <h1 class="title">Upcoming Events</h1> 
+<% @events.each do |event| %>
+  <% if !!@user && @user.admin == 1 %>
+    <%= render partial: "event", locals: {event: event, admin: @user} %>
+  <% else %>
+    <%= render partial: "event", locals: {event: event, admin: false} %>
+  <% end %>
+<% end %>
