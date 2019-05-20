@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    has_many :going_responses
+    has_many :events, through: :going_responses
     has_secure_password
 
     #validations
