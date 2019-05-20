@@ -1,4 +1,12 @@
 <h1 class="title">Upcoming Events</h1> 
+<% if !!@user %>
+  <h3 class="subtitle">Welcome <%= @user.name%></h3> 
+  <%= link_to 'Logout', logout_path, method: :post%>
+<% else %>
+  <%= link_to 'Login', login_path, method: :get%>
+<% end %>
+<%= link_to 'Create New Event', new_event_path %>
+
 <% @events.each do |event| %>
   <% if !!@user && @user.admin == 1 %>
     <%= render partial: "event", locals: {event: event, admin: @user} %>
@@ -6,3 +14,14 @@
     <%= render partial: "event", locals: {event: event, admin: false} %>
   <% end %>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  $(".js-more").on('click', function() {
+    let id = $(this).data("id");
+    $.getJSON("/events/" + id + ".json", function(data) {
+      $("#body-" + id).text(data["description"]);
+    });
+  });
+});
+</script>

@@ -1,0 +1,34 @@
+html { 
+    background: url('concert-background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Quicksand', sans-serif;
+    color: rgb(233, 232, 206)
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+}
+
+.title{
+    display: inline-block;
+}
+a{
+    text-decoration: none;
+    color: green;
+}
+
+.js-more {
+    color: rgb(207, 240, 237);
+}
+.js-more:hover {
+    background-color: rgba(255, 255, 255, 0.171);
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.delete {
+    background: rgba(255, 0, 0, 0.52);
+}

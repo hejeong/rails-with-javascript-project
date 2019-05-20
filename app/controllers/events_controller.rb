@@ -3,13 +3,29 @@ class EventsController < ApplicationController
         @event = Event.new
     end
 
+    def create
+        event = Event.new(event_params)
+        event.save()
+        redirect_to root_path
+    end 
 
     def index
-        @user = nil
         if logged_in?
             @user = User.find(session[:user_id])
         end
         @events = Event.all
     end
 
+    def show
+        @event = Event.find(params[:id])
+        respond_to do |format|
+            format.html { render :show}
+            format.json {render json: @event}
+        end
+    end
+    private 
+
+    def event_params
+        params.require(:event).permit(:name, :location, :description)
+    end
 end
