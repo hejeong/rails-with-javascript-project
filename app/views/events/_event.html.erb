@@ -2,8 +2,23 @@
 <div class="js-more" data-id="<%= event.id %>">
 <h3 class="title"><%= event.name %></h3> 
 <% if !!admin %>
-    <button class="delete">Delete</button>
+    <button class="delete" data-id=<%= event.id %>>Delete</button>
 <% end %>
 <h5><%= event.location %></h5>
 <h4 id="body-<%= event.id %>"><%= truncate event.description %></h4>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+$(function(){
+    $(".delete").unbind().on('click', function(){
+        const delete_id = $(this).data("id");       
+        $.ajax({
+            url: '/events/' + delete_id, 
+            type: 'DELETE',
+            success: function(response){
+                $(`div.js-more[data-id=${delete_id}]`).remove();
+            }
+        });
+    });
+});
+</script>
