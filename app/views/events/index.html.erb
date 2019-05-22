@@ -5,8 +5,8 @@
 <% else %>
   <%= link_to 'Login', login_path, method: :get%>
 <% end %>
-<%= link_to 'Create New Event', new_event_path %>
-
+<br>
+<div class="event-list">
 <% @events.each do |event| %>
   <% if !!@user && @user.admin == 1 %>
     <%= render partial: "event", locals: {event: event, admin: @user} %>
@@ -14,13 +14,27 @@
     <%= render partial: "event", locals: {event: event, admin: false} %>
   <% end %>
 <% end %>
+</div>
+
+<div class="event-form">
+  <h1> Create New Event </h1>
+  <%= render 'form', event: @event %>
+</div>
+
 
 <script type="text/javascript" charset="utf-8">
 $(function () {
   $(".js-more").on('click', function() {
-    let id = $(this).data("id");
+    const id = $(this).data("id");
+    let text = $("#body-" + id).text();
     $.getJSON("/events/" + id + ".json", function(data) {
-      $("#body-" + id).text(data["description"]);
+      if(text != data["description"]){
+        $("#body-" + id).text(data["description"]);
+      }else{
+        text = data["description"].substring(0, 27);
+        text = text.concat("...");
+        $("#body-" + id).text(text);
+      }
     });
   });
 });
