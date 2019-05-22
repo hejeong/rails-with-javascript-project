@@ -1,14 +1,14 @@
 <div class="navbar"><h1 class="title1">Event</h1><h1 class="title2">Feed</h1>
-<div class="profile"> 
-<% if !!@user %>
-  <h3 class="subtitle">Welcome <%= @user.name%></h3>  <br>
-  <%= link_to 'Logout', logout_path, method: :post, class: :logout%>
-<% else %>
-  <%= link_to 'Login', login_path, method: :get, class: :login%>
-<% end %>
-</div>
-</div>
-<br>
+    <div class="profile"> 
+    <% if !!@user %>
+    <h3 class="subtitle">Welcome <%= @user.name%></h3>  <br>
+    <%= link_to 'Logout', logout_path, method: :post, class: :logout%>
+    <% else %>
+    <%= link_to 'Login', login_path, method: :get, class: :login%>
+    <% end %>
+    </div>
+  </div>
+  <br>
 <div class="event-list">
 <h2 class="events-title">Upcoming Events</h2>
 <% @events.each do |event| %>
@@ -22,7 +22,7 @@
 
 <div class="event-form">
   <h3 class="new-event-title"> Create New Event </h3>
-  <%= render 'form', event: @event %>
+  <div class="new-event-div"></div>
 </div>
 
 
@@ -40,6 +40,21 @@ $(function () {
         $("#body-" + id).text(text);
       }
     });
+  });
+});
+</script>
+
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function () {
+  $(".new-event-title").on('click', function() {
+    const target = $(".new-event-div");
+    if(target.is(':empty') == true){
+      $.get('/events/new', function(response){
+        target.html(response);
+      });
+    }else{
+      target.html("");
+    }
   });
 });
 </script>
