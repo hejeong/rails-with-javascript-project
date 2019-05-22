@@ -1,12 +1,16 @@
-<h1 class="title">Upcoming Events</h1> 
+<div class="navbar"><h1 class="title1">Event</h1><h1 class="title2">Feed</h1>
+<div class="profile"> 
 <% if !!@user %>
-  <h3 class="subtitle">Welcome <%= @user.name%></h3> 
-  <%= link_to 'Logout', logout_path, method: :post%>
+  <h3 class="subtitle">Welcome <%= @user.name%></h3>  <br>
+  <%= link_to 'Logout', logout_path, method: :post, class: :logout%>
 <% else %>
-  <%= link_to 'Login', login_path, method: :get%>
+  <%= link_to 'Login', login_path, method: :get, class: :login%>
 <% end %>
+</div>
+</div>
 <br>
 <div class="event-list">
+<h2 class="events-title">Upcoming Events</h2>
 <% @events.each do |event| %>
   <% if !!@user && @user.admin == 1 %>
     <%= render partial: "event", locals: {event: event, admin: @user} %>
@@ -17,7 +21,7 @@
 </div>
 
 <div class="event-form">
-  <h1> Create New Event </h1>
+  <h3 class="new-event-title"> Create New Event </h3>
   <%= render 'form', event: @event %>
 </div>
 
@@ -31,7 +35,7 @@ $(function () {
       if(text != data["description"]){
         $("#body-" + id).text(data["description"]);
       }else{
-        text = data["description"].substring(0, 27);
+        text = data["description"].substring(0, 72);
         text = text.concat("...");
         $("#body-" + id).text(text);
       }

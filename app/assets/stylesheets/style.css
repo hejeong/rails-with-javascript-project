@@ -8,40 +8,160 @@ html {
     color: rgb(233, 232, 206)
 }
 
+body {
+    margin: 0;
+}
 h1, h2, h3, h4, h5, h6{
     margin: 0;
 }
+.navbar{
+    background: black;
+    overflow: hidden;   
+    float: left;
+    width: 100%;
+}
+.title1{
+    float: left;
+    text-align: center;
+    margin: 20px;
+    margin-right: 0px;
+    color: rgba(255, 255, 255, 0.753);
+}
+.title2{
+    float: left;
+    text-align: center;
+    margin: 20px 5px 0px 0px;
+    color: rgba(255, 0, 0, 0.459);
+}
 
-.title{
-    display: inline-block;
+.subtitle{
+    float: left;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.logout{
+    float: right;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 0px;
+}
+
+.login {
+    float: right;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 24px;
+}
+.profile {
+    float: right;
+    height: auto;
+    margin-right: 25px;
 }
 a{
     text-decoration: none;
     color: green;
 }
 
+.events-title{
+    padding: 15px 15px 15px 15px;
+    background: rgba(204, 157, 57, 0.815);
+    width: 100%;
+    color: aliceblue;
+}
 .js-more {
     color: rgb(207, 240, 237);
+    padding: 15px;
+    border-radius: 6px;
 }
 .js-more:hover {
     background-color: rgba(255, 255, 255, 0.171);
     transition-duration: 0.4s;
     cursor: pointer;
+    box-shadow: -2px 3px 5px rgb(12, 36, 48);
 }
 
 .delete {
     background: rgba(255, 0, 0, 0.52);
 }
-
+.event-title {
+    color: rgb(124, 142, 241);
+}
 .event-list {
     display: inline-block;
     margin-top: 50px;
-    margin-left: 15%;
+    margin-left: 8%;
+    margin-right: 30px;
     width: 40%;
+    background: rgba(9, 21, 44, 0.644);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 700px;
+    box-shadow: -2px 3px 3px rgb(12, 36, 48);
+
 }
 
+.location {
+    font-style: italic;
+    color: rgb(212, 167, 241);
+}
+.event-list::-webkit-scrollbar { 
+    width: 0 !important 
+}
+.new-event-title{
+    text-align: center;
+    background: rgb(56, 177, 161, 0.815);
+    padding: 10px 0px 10px 0px;
+    margin: 0px 10px 10px 0px;
+    width: 100%;
+}
 .event-form {
     float: right;
-    margin-top: 30px;
-    margin-right: 20%;
+    margin-top: 50px;
+    margin-right: 15%;
+    padding: 0px 0px 15px 0px;
+    background: rgba(29, 48, 85, 0.70);
+    border-radius: 8px;
+    align-content: center;
+    overflow-x: hidden;
+    width: 28%;
+    box-shadow: -2px 3px 3px rgb(12, 36, 48);
+
+}
+
+input {
+    width: 70%;
+    margin: 5px 0px 5px 55px;
+    height: 20px;
+    background-color: rgb(214, 210, 210);
+    border: none;
+    border-radius: 1px;
+    box-shadow: -2px 3px 5px rgb(12, 36, 48);
+}
+input:focus, textarea:focus{
+    background-color: rgb(143, 163, 180);
+}
+textarea{
+    width: 70%;
+    margin: 5px 0px 5px 55px;
+    height: 100px;
+    background-color: rgb(214, 210, 210);
+    box-shadow: -2px 3px 5px rgb(12, 36, 48);
+}
+textarea::-webkit-scrollbar { 
+    width: 0 !important 
+}
+label {
+    margin-left: 55px;
+}
+.submit-btn{
+    width: 80px;
+    float: right;
+    margin-right: 65px;
+    padding: 5px;
+    height: 30px;
+    color:rgba(255, 255, 255, 0.849);
+    background-color: rgb(116, 175, 116);
+    box-shadow: -2px 3px 5px rgb(12, 36, 48);
+
 }
