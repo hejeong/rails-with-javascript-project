@@ -13,6 +13,7 @@ class EventsController < ApplicationController
         if logged_in?
             @user = User.find(session[:user_id])
         end
+        @event = Event.new
         @events = Event.all
     end
 
@@ -22,6 +23,11 @@ class EventsController < ApplicationController
             format.html { render :show}
             format.json {render json: @event}
         end
+    end
+
+    def destroy
+        event = Event.find(params[:id])
+        event.destroy
     end
     private 
 
