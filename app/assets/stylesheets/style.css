@@ -32,3 +32,16 @@ a{
 .delete {
     background: rgba(255, 0, 0, 0.52);
 }
+
+.event-list {
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 15%;
+    width: 40%;
+}
+
+.event-form {
+    float: right;
+    margin-top: 30px;
+    margin-right: 20%;
+}

@@ -6,7 +6,7 @@
 <script type="text/javascript" charset="utf-8">
 $(function () {
   $(".js-next").on("click", function() {
-    let nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    const nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.getJSON("/events/" + nextId + ".json", function(data) {
       $(".eventName").text(data["name"]);
       $(".eventLocation").text(data["location"]);
