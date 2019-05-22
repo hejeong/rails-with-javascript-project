@@ -12,6 +12,16 @@
   <body>
   
   <div class="content">
+  <div class="navbar"><h1 class="title1">Event</h1><h1 class="title2">Feed</h1>
+    <div class="profile"> 
+    <% if !!@user %>
+    <h3 class="subtitle">Welcome <%= @user.name%></h3>  <br>
+    <%= link_to 'Logout', logout_path, method: :post, class: :logout%>
+    <% else %>
+    <%= link_to 'Login', login_path, method: :get, class: :login%>
+    <% end %>
+    </div>
+  </div>
     <%= yield %>
   </div>
   </body>

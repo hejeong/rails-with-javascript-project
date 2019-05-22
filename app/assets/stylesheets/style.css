@@ -68,11 +68,17 @@ h1, h2, h3, h4, h5, h6{
     height: auto;
     margin-right: 25px;
 }
+.show-event-name{
+    display: inline-block;
+}
 a{
     text-decoration: none;
     color: green;
 }
-
+.show-page{
+    height: 100vh;
+    width: 100%;
+    background: rgba(9, 21, 44, 0.644);}
 .events-title{
     padding: 15px 15px 15px 15px;
     background: rgba(204, 157, 57, 0.815);
@@ -182,4 +188,40 @@ label {
     background-color: rgb(116, 175, 116);
     box-shadow: -2px 3px 5px rgb(12, 36, 48);
 
+}
+
+.user-login-form{
+    background: rgba(29, 48, 85, 0.70);
+    align-content: center;
+    height: 80vh;
+    width: 60%;
+    margin: auto;
+    padding-top: 10px;
+}
+
+.login-title{
+    background: rgb(88, 88, 128);
+    padding-top: 20px;
+    padding: 20px;
+}
+
+.login-input{
+    width: 60%;
+    margin: 15px 0px 0px 160px;
+    height: 30px;
+}
+
+.login-label{
+    margin-top: 20px;
+    margin-left: 160px;
+}
+.login-btn{
+    float: right;
+    width: 80px;
+    height: 30px;
+    padding: 8px;
+    margin-right: 200px;
+}
+.link.back {
+    float: left;
 }

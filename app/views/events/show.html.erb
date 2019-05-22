@@ -1,14 +1,16 @@
-<div class="eventName"><%= @event.name %></div>
+<div class="show-page">
+<div class="show-event-name"><h1><%= @event.name %></h1></div>
 <a href="#" class="js-next" data-id="<%=@event.id%>">Next...</a>
-<h1 class="eventLocation"><%= @event.location %></h1>
+<h3 class="eventLocation"><%= @event.location %></h3>
 <p class="eventDescription"><%= @event.description %></p>
-
+<a href="/events/">Home</a>
+</div>
 <script type="text/javascript" charset="utf-8">
 $(function () {
   $(".js-next").on("click", function() {
     const nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.getJSON("/events/" + nextId + ".json", function(data) {
-      $(".eventName").text(data["name"]);
+      $(".show-event-name").text(data["name"]);
       $(".eventLocation").text(data["location"]);
       $(".eventDescription").text(data["description"]);
       // re-set the id to current on the link

@@ -1,12 +1,15 @@
-<h1>Log in to your account:</h1>
 
+<br><br><div class="user-login-form">
+<h1 class="login-title">Log into your account:</h1>
+<br> <br>
 <%= form_for(@user, url: login_authenticate_path) do |f| %>
-    <%= f.label :username %> <br>
-    <%= f.text_field :username, class: :input %> <br> <br>
+    <%= f.label :username, class: :"login-label" %> <br>
+    <%= f.text_field :username, class: :"login-input" %> <br> <br>
     
-    <%= f.label :password %> <br>
-    <%= f.password_field :password, class: :input %> <br><br>
+    <%= f.label :password, class: :"login-label" %> <br>
+    <%= f.password_field :password, class: :"login-input" %> <br><br>
 
     <%= link_to 'Back', root_path, class: "link back" %>
-    <%= f.submit 'Log In', class: :button %>
+    <%= f.submit 'Log In', class: :"login-btn" %>
 <% end %>
+</div>

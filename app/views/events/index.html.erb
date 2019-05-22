@@ -1,13 +1,4 @@
-<div class="navbar"><h1 class="title1">Event</h1><h1 class="title2">Feed</h1>
-    <div class="profile"> 
-    <% if !!@user %>
-    <h3 class="subtitle">Welcome <%= @user.name%></h3>  <br>
-    <%= link_to 'Logout', logout_path, method: :post, class: :logout%>
-    <% else %>
-    <%= link_to 'Login', login_path, method: :get, class: :login%>
-    <% end %>
-    </div>
-  </div>
+
   <br>
 <div class="event-list">
 <h2 class="events-title">Upcoming Events</h2>
@@ -29,15 +20,14 @@
 <script type="text/javascript" charset="utf-8">
 $(function () {
   $(".js-more").on('click', function() {
-    const id = $(this).data("id");
+    const eventDiv = $(this);
+    const id = eventDiv.data("id");
     let text = $("#body-" + id).text();
     $.getJSON("/events/" + id + ".json", function(data) {
       if(text != data["description"]){
         $("#body-" + id).text(data["description"]);
       }else{
-        text = data["description"].substring(0, 72);
-        text = text.concat("...");
-        $("#body-" + id).text(text);
+        window.location.replace("/events/" + id);
       }
     });
   });
@@ -50,7 +40,9 @@ $(document).ready(function () {
     const target = $(".new-event-div");
     if(target.is(':empty') == true){
       $.get('/events/new', function(response){
-        target.html(response);
+        let $container = $(response).wrap('<div />').parent();
+        $container.find('.navbar').remove();
+        target.html($container);
       });
     }else{
       target.html("");

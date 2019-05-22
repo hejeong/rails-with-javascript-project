@@ -1,3 +1,4 @@
+<div class="user-signup-form">
 <%= form_for @user, controller: 'users', action: 'create' do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name%> <br> <br>
@@ -9,3 +10,4 @@
     <%= f.text_field :email%> 
     <%= f.submit 'Submit'%>
 <% end %>
+</div>
