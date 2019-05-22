@@ -7,3 +7,16 @@
     <%= f.text_area :description %> <br>
     <%= f.submit 'Submit' %>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+$(function(){
+    $(".new_event").submit(function(event){
+       event.preventDefault();
+       const url = $(this).attr('action');
+       const posting = $.post(url, {event => {name: $("#event_name").val(), location: $("#event_location").val(), description: $("#event_description").val()}})
+       posting.done(function( data ) {
+        alert('success');
+       });
+    });
+});
+</script>
